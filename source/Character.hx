@@ -133,6 +133,16 @@ class Character extends FlxSprite
 				updateHitbox();
 				antialiasing = false;
 
+				case 'gf-tankmen':
+				frames = Paths.getSparrowAtlas('characters/gfTankmen');
+				animation.addByIndices('sad', 'GF Crying at Gunpoint', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "", 24, true);
+				animation.addByIndices('danceLeft', 'GF Dancing at Gunpoint', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				animation.addByIndices('danceRight', 'GF Dancing at Gunpoint', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				
+				loadOffsetFile('gf');
+
+				playAnim('danceRight');
+
 			case 'dad':
 				// DAD ANIMATION LOADING CODE
 				tex = Paths.getSparrowAtlas('characters/DADDY_DEAREST');
@@ -438,6 +448,39 @@ class Character extends FlxSprite
 				updateHitbox();
 				antialiasing = false;
 				flipX = true;
+            case 'bf-holding-gf':
+				frames = Paths.getSparrowAtlas('characters/bfAndGF');
+				quickAnimAdd('idle', 'BF idle dance');
+				quickAnimAdd('singDOWN', 'BF NOTE DOWN0');
+				quickAnimAdd('singLEFT', 'BF NOTE LEFT0');
+				quickAnimAdd('singRIGHT', 'BF NOTE RIGHT0');
+				quickAnimAdd('singUP', 'BF NOTE UP0');
+				quickAnimAdd('singDOWNmiss', 'BF NOTE DOWN MISS');
+				quickAnimAdd('singLEFTmiss', 'BF NOTE LEFT MISS');
+				quickAnimAdd('singRIGHTmiss', 'BF NOTE RIGHT MISS');
+				quickAnimAdd('singUPmiss', 'BF NOTE UP MISS');
+
+				quickAnimAdd('bfCatch', 'BF catches GF');
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('idle');
+
+				flipX = true;
+
+				hpcolor = 0xFF31B0D1;
+			case 'bf-holding-gf-dead':
+				frames = Paths.getSparrowAtlas('characters/bfHoldingGF-DEAD');
+				quickAnimAdd('singUP', 'BF Dead with GF Loop');
+				quickAnimAdd('firstDeath', 'BF Dies with GF');
+				animation.addByPrefix('deathLoop', 'BF Dead with GF Loop', 24, true);
+				quickAnimAdd('deathConfirm', 'RETRY confirm holding gf');
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('firstDeath');
+
+				flipX = true;
 
 			case 'senpai':
 				frames = Paths.getSparrowAtlas('characters/senpai');
@@ -531,6 +574,39 @@ class Character extends FlxSprite
 				playAnim('idle');
 
 				hpcolor = 0xFFAF66CE;
+
+				case 'tankman':
+				frames = Paths.getSparrowAtlas('characters/tankmanCaptain');
+				quickAnimAdd('idle', 'Tankman Idle Dance');
+				if (isPlayer)
+				{
+					quickAnimAdd('singLEFT', 'Tankman Note Left ');
+					quickAnimAdd('singRIGHT', 'Tankman Right Note ');
+					quickAnimAdd('singLEFTmiss', 'Tankman Note Left MISS');
+					quickAnimAdd('singRIGHTmiss', 'Tankman Right Note MISS');
+				}
+				else
+				{
+					quickAnimAdd('singLEFT', 'Tankman Right Note ');
+					quickAnimAdd('singRIGHT', 'Tankman Note Left ');
+					quickAnimAdd('singLEFTmiss', 'Tankman Right Note MISS');
+					quickAnimAdd('singRIGHTmiss', 'Tankman Note Left MISS');
+				}
+				quickAnimAdd('singUP', 'Tankman UP note ');
+				quickAnimAdd('singDOWN', 'Tankman DOWN note ');
+				quickAnimAdd('singUPmiss', 'Tankman UP note MISS');
+				quickAnimAdd('singDOWNmiss', 'Tankman DOWN note MISS');
+
+				quickAnimAdd('singDOWN-alt', 'PRETTY GOOD');
+				quickAnimAdd('singUP-alt', 'TANKMAN UGH');
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('idle');
+
+				flipX = true;
+
+				hpcolor = 0xFF000000;
 		}
 
 		dance();
