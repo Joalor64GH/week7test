@@ -450,19 +450,17 @@ class Character extends FlxSprite
 				flipX = true;
             case 'bf-holding-gf':
 				frames = Paths.getSparrowAtlas('characters/bfAndGF');
-				quickAnimAdd('idle', 'BF idle dance');
-				quickAnimAdd('singDOWN', 'BF NOTE DOWN0');
-				quickAnimAdd('singLEFT', 'BF NOTE LEFT0');
-				quickAnimAdd('singRIGHT', 'BF NOTE RIGHT0');
-				quickAnimAdd('singUP', 'BF NOTE UP0');
-				quickAnimAdd('singDOWNmiss', 'BF NOTE DOWN MISS');
-				quickAnimAdd('singLEFTmiss', 'BF NOTE LEFT MISS');
-				quickAnimAdd('singRIGHTmiss', 'BF NOTE RIGHT MISS');
-				quickAnimAdd('singUPmiss', 'BF NOTE UP MISS');
+				animation.addByPrefix('idle', 'BF idle dance');
+				animation.addByPrefix('singDOWN', 'BF NOTE DOWN0');
+				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0');
+				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0');
+				animation.addByPrefix('singUP', 'BF NOTE UP0');
+				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS');
+				animation.addByPrefix('singLEFTmiss', 'BF NOTE LEFT MISS');
+				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS');
+				animation.addByPrefix('singUPmiss', 'BF NOTE UP MISS');
 
-				quickAnimAdd('bfCatch', 'BF catches GF');
-
-				loadOffsetFile(curCharacter);
+				animation.addByPrefix('bfCatch', 'BF catches GF');
 
 				playAnim('idle');
 
@@ -471,12 +469,10 @@ class Character extends FlxSprite
 				hpcolor = 0xFF31B0D1;
 			case 'bf-holding-gf-dead':
 				frames = Paths.getSparrowAtlas('characters/bfHoldingGF-DEAD');
-				quickAnimAdd('singUP', 'BF Dead with GF Loop');
-				quickAnimAdd('firstDeath', 'BF Dies with GF');
+				animation.addByPrefix('singUP', 'BF Dead with GF Loop');
+				animation.addByPrefix('firstDeath', 'BF Dies with GF');
 				animation.addByPrefix('deathLoop', 'BF Dead with GF Loop', 24, true);
-				quickAnimAdd('deathConfirm', 'RETRY confirm holding gf');
-
-				loadOffsetFile(curCharacter);
+				animation.addByPrefix('deathConfirm', 'RETRY confirm holding gf');
 
 				playAnim('firstDeath');
 
@@ -577,30 +573,28 @@ class Character extends FlxSprite
 
 				case 'tankman':
 				frames = Paths.getSparrowAtlas('characters/tankmanCaptain');
-				quickAnimAdd('idle', 'Tankman Idle Dance');
+				animation.addByPrefix('idle', 'Tankman Idle Dance');
 				if (isPlayer)
 				{
-					quickAnimAdd('singLEFT', 'Tankman Note Left ');
-					quickAnimAdd('singRIGHT', 'Tankman Right Note ');
-					quickAnimAdd('singLEFTmiss', 'Tankman Note Left MISS');
-					quickAnimAdd('singRIGHTmiss', 'Tankman Right Note MISS');
+					animation.addByPrefix('singLEFT', 'Tankman Note Left ');
+					animation.addByPrefix('singRIGHT', 'Tankman Right Note ');
+					animation.addByPrefix('singLEFTmiss', 'Tankman Note Left MISS');
+					animation.addByPrefix('singRIGHTmiss', 'Tankman Right Note MISS');
 				}
 				else
 				{
-					quickAnimAdd('singLEFT', 'Tankman Right Note ');
-					quickAnimAdd('singRIGHT', 'Tankman Note Left ');
-					quickAnimAdd('singLEFTmiss', 'Tankman Right Note MISS');
-					quickAnimAdd('singRIGHTmiss', 'Tankman Note Left MISS');
+					animation.addByPrefix('singLEFT', 'Tankman Right Note ');
+					animation.addByPrefix('singRIGHT', 'Tankman Note Left ');
+					animation.addByPrefix('singLEFTmiss', 'Tankman Right Note MISS');
+					animation.addByPrefix('singRIGHTmiss', 'Tankman Note Left MISS');
 				}
-				quickAnimAdd('singUP', 'Tankman UP note ');
-				quickAnimAdd('singDOWN', 'Tankman DOWN note ');
-				quickAnimAdd('singUPmiss', 'Tankman UP note MISS');
-				quickAnimAdd('singDOWNmiss', 'Tankman DOWN note MISS');
+				animation.addByPrefix('singUP', 'Tankman UP note ');
+				animation.addByPrefix('singDOWN', 'Tankman DOWN note ');
+				animation.addByPrefix('singUPmiss', 'Tankman UP note MISS');
+				animation.addByPrefix('singDOWNmiss', 'Tankman DOWN note MISS');
 
-				quickAnimAdd('singDOWN-alt', 'PRETTY GOOD');
-				quickAnimAdd('singUP-alt', 'TANKMAN UGH');
-
-				loadOffsetFile(curCharacter);
+				animation.addByPrefix('singDOWN-alt', 'PRETTY GOOD');
+				animation.addByPrefix('singUP-alt', 'TANKMAN UGH');
 
 				playAnim('idle');
 
